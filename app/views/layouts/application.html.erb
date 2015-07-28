@@ -7,8 +7,62 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <div id="main-container" class="container">
+      <div class="row-sm-9">
+     	Club Costa Sur
+      </div>
+      <div class="row-sm-9">
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">Costa Sur</a>
+	    </div>
 
-<%= yield %>
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+          <li class="<%= active_class(pages_inicio_path) %>">
+            <%= link_to "Inicio", pages_inicio_path %>
+          </li>
+          <li class="<%= active_class(pages_nosotros_path) %>">
+            <%= link_to "Nosotros", pages_nosotros_path %>
+          </li>
+		<li class="dropdown">
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Habitaciones <span class="caret"></span></a>
+		  <ul class="dropdown-menu">
+        <li>
+          <% @rooms.each_with_index do |room, index| %>
+          <%= link_to room.title, room_path(index+1) %>
+          <% end %>
+        </li>
+		  </ul>
+		</li>
+    <li class="<%= active_class(pages_restaurant_path) %>">
+      <%= link_to "Restaurante", pages_restaurant_path %>
+    </li>
+    <li class="<%= active_class(pages_contactenos_path) %>">
+      <%= link_to "Restaurante", pages_contactenos_path %>
+    </li>
+	      </ul>
 
+	      <ul class="nav navbar-nav navbar-right">
+		<li><a href="#">Facebook</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+      </div>
+      <div class="row-xs-9">
+        <%= yield %>
+      </div>
+      </div>
+    </div>
 </body>
 </html>

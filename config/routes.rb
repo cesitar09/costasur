@@ -1,9 +1,22 @@
 Rails.application.routes.draw do
+  resources :pictures
+  resources :rooms
+  resources :rooms
+  get 'pages/inicio'
+
+  get 'pages/nosotros'
+
+  get 'pages/habitaciones'
+
+  get 'pages/restaurant'
+
+  get 'pages/contactenos'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'pages#inicio'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
